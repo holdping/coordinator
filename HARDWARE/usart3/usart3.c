@@ -13,6 +13,7 @@ u8  USART1_TX_BUF[USART1_MAX_SEND_LEN]; 			//·¢ËÍ»º³å,×î´óUSART3_MAX_SEND_LEN×Ö½
 
  char RECS[600];
  char RECS1[600];
+ char check[200];
 unsigned char i;
 unsigned char j;
 
@@ -22,19 +23,21 @@ unsigned char j;
 vu16 USART3_RX_STA=0;
 vu16 USART1_RX_STA=0;
 u8 USART3_RX_FLAG=0;
-
+u8 USART1_RX_FLAG=0;
 
 //´®¿Ú3½ÓÊÕÖĞ¶Ï·şÎñº¯Êı
 void USART3_IRQHandler(void)
 {
 	if(USART_GetITStatus(USART3,USART_IT_RXNE))
 	{ 
-		RECS[i++]=USART_ReceiveData(USART3);   //½«Êı¾İ´æÈë»º³åÇø
-		if((RECS[i-2]=='\r')|(RECS[i-1]=='\n'))    //ÅĞ¶Ï½ÓÊÜµ½µÄÊı¾İÊÇ·ñÎª»»ĞĞ½áÎ² £¬ÊÇ¾Í´Óµ¹ÊıµÚ¶şÎ»½áÊø´ËÊı¾İ
+		RECS1[i++]=USART_ReceiveData(USART3);   //½«Êı¾İ´æÈë»º³åÇø
+		if((RECS1[i-2]=='\r')|(RECS1[i-1]=='\n'))    //ÅĞ¶Ï½ÓÊÜµ½µÄÊı¾İÊÇ·ñÎª»»ĞĞ½áÎ² £¬ÊÇ¾Í´Óµ¹ÊıµÚ¶şÎ»½áÊø´ËÊı¾İ
 		{
-			RECS[i-2]='\0';                
+		
+			RECS1[i-2]='\0';                
 			i = 0;
-			USART3_RX_FLAG=1;
+			Analys_zig();
+			analys_state();
 	   
 		}else if(USART_GetITStatus(USART3, USART_IT_IDLE) != RESET)  //????
     {
@@ -50,20 +53,46 @@ void USART1_IRQHandler(void)
 {
 	if(USART_GetITStatus(USART1,USART_IT_RXNE))
 	{ 
-//	USART1_RX_BUF[USART1_RX_STA++]=USART_ReceiveData(USART1);//½«Êı¾İ´æÈë»º³åÇø
-//		
-//		if(USART1_RX_STA==6){USART1_RX_BUF[6]='\0';USART1_RX_STA=0;}
-		  RECS1[j++]=USART_ReceiveData(USART1);//½«Êı¾İ´æÈë»º³åÇø
-		if((RECS1[j-2]=='\r')|(RECS1[j-1]=='\n'))    //ÅĞ¶Ï½ÓÊÜµ½µÄÊı¾İÊÇ·ñÎª»»ĞĞ½áÎ² £¬ÊÇ¾Í´Óµ¹ÊıµÚ¶şÎ»½áÊø´ËÊı¾İ
+       USART1_RX_FLAG=1;
+		  RECS[j++]=USART_ReceiveData(USART1);//½«Êı¾İ´æÈë»º³åÇø
+		if((RECS[j-2]=='\r')|(RECS[j-1]=='\n'))    //ÅĞ¶Ï½ÓÊÜµ½µÄÊı¾İÊÇ·ñÎª»»ĞĞ½áÎ² £¬ÊÇ¾Í´Óµ¹ÊıµÚ¶şÎ»½áÊø´ËÊı¾İ
 		{
-			RECS1[j-2]='\0';                
+			strcpy(check,RECS);			
+			RECS[j-2]='\0';
 			j = 0;
-	   
+					
+			if(strncmp(RECS,"+MQTTSUBRECV:",13)==0)
+			{ USART1_RX_FLAG=0;  
+				CommandAnalyse();
+			}
 		}
 		else if(USART_GetITStatus(USART1, USART_IT_IDLE) != RESET)  //????
     {
         USART1->SR;//??SR???
         USART1->DR; //??DR
+    }
+}
+	
+}
+
+void USART2_IRQHandler(void)
+{
+	if(USART_GetITStatus(USART2,USART_IT_RXNE))
+	{ 
+//	USART1_RX_BUF[USART1_RX_STA++]=USART_ReceiveData(USART1);//½«Êı¾İ´æÈë»º³åÇø
+//		
+//		if(USART1_RX_STA==6){USART1_RX_BUF[6]='\0';USART1_RX_STA=0;}
+		  RECS[j++]=USART_ReceiveData(USART2);//½«Êı¾İ´æÈë»º³åÇø
+		if((RECS[j-2]=='\r')|(RECS[j-1]=='\n'))    //ÅĞ¶Ï½ÓÊÜµ½µÄÊı¾İÊÇ·ñÎª»»ĞĞ½áÎ² £¬ÊÇ¾Í´Óµ¹ÊıµÚ¶şÎ»½áÊø´ËÊı¾İ
+		{
+			RECS[j-2]='\0';                
+			j = 0;
+	     		USART3_RX_FLAG=1;
+		}
+		else if(USART_GetITStatus(USART2, USART_IT_IDLE) != RESET)  //????
+    {
+        USART2->SR;//??SR???
+        USART2->DR; //??DR
     }
 }
 	
@@ -204,3 +233,7 @@ void u1_printf(char* fmt,...)
 		USART_SendData(USART1,USART1_TX_BUF[j]); 
 	} 
 }
+
+//³õÊ¼»¯IO ´®¿Ú3
+//pclk1:PCLK1Ê±ÖÓÆµÂÊ(Mhz)
+//bound:²¨ÌØÂÊ	  

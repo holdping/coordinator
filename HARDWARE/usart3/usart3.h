@@ -30,6 +30,7 @@ void usart3_init(u32 bound);				//串口3初始化
 void u3_printf(char* fmt,...);
 void usart1_init(u32 bound);				//串口3初始化 
 void u1_printf(char* fmt,...);
+
 #endif
 
 

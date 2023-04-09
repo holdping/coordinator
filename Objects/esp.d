@@ -29,6 +29,7 @@
 .\objects\esp.o: .\FWLib\inc\stm32f10x_wwdg.h
 .\objects\esp.o: .\FWLib\inc\misc.h
 .\objects\esp.o: G:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\esp.o: G:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\esp.o: G:\keil5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\esp.o: .\HARDWARE\delay\delay.h
 .\objects\esp.o: HARDWARE\esp8266\esp.h

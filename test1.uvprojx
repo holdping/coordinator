@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\USER;.\CORE;.\FWLib\inc;.\HARDWARE\sys;.\HARDWARE\delay;.\HARDWARE\LED;.\HARDWARE\lcd1602;.\HARDWARE\esp8266;.\HARDWARE\usart3;.\HARDWARE\timer;.\HARDWARE;.\HARDWARE\ADC3;.\HARDWARE\values;.\HARDWARE\OLED</IncludePath>
+              <IncludePath>.\USER;.\CORE;.\FWLib\inc;.\HARDWARE\sys;.\HARDWARE\delay;.\HARDWARE\LED;.\HARDWARE\lcd1602;.\HARDWARE\esp8266;.\HARDWARE\usart3;.\HARDWARE\timer;.\HARDWARE;.\HARDWARE\values;.\HARDWARE\OLED</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

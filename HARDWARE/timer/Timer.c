@@ -4,8 +4,8 @@
 #include <string.h>
 #include "delay.h"
 #include "esp.h"
-extern char RECS[250];
 int min_1=0;
+u8 send_state=0;
 void Timer_Init(void)
 {
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 ,ENABLE);
@@ -45,6 +45,7 @@ void TIM2_IRQHandler(void)
 	{
 		{TIM_ClearITPendingBit (TIM2,TIM_IT_Update);
 		t_5s++;
+			send_state++;
 		if(t_5s==6)
 			{
 				min_1=1;

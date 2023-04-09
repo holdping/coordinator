@@ -22,17 +22,17 @@ Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
 D:\Desktop\协调器\test1.uvprojx
-Project File Date:  03/11/2023
+Project File Date:  03/13/2023
 
 <h2>Output:</h2>
 Rebuild target 'test'
 compiling main.c...
 .\HARDWARE\values\co2.h(6): warning:  #1-D: last line of file ends without a newline
   #endif
-USER\main.c(32): warning:  #550-D: variable "erro" was set but never used
-        static char erro;
-USER\main.c(85): warning:  #1-D: last line of file ends without a newline
-  //}
+USER\main.c(74): warning:  #177-D: variable "flag" was declared but never referenced
+   u8 flag=0;
+USER\main.c(147): warning:  #1-D: last line of file ends without a newline
+  }
 USER\main.c: 3 warnings, 0 errors
 compiling stm32f10x_it.c...
 compiling system_stm32f10x.c...
@@ -64,31 +64,41 @@ compiling stm32f10x_wwdg.c...
 compiling sys.c...
 compiling delay.c...
 compiling esp.c...
-HARDWARE\esp8266\esp.c(88): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(88): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(88): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(88): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(88): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(88): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(99): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(99): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(99): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(99): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(99): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c(99): warning:  #192-D: unrecognized character escape sequence
-        u3_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
-HARDWARE\esp8266\esp.c: 12 warnings, 0 errors
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(106): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(117): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"systemmode\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(117): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"systemmode\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(117): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"systemmode\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(117): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"systemmode\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(117): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"systemmode\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(117): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"systemmode\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(117): warning:  #192-D: unrecognized character escape sequence
+        u1_printf("AT+MQTTPUB=0,\"%s\",\"\\{\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"%s\\\"\:%d\\,\\\"systemmode\\\"\:%d\}\",0,0\r\n",
+HARDWARE\esp8266\esp.c(201): warning:  #940-D: missing return statement at end of non-void function "connect_try"
+  }
+HARDWARE\esp8266\esp.c(335): warning:  #940-D: missing return statement at end of non-void function "analyse_str"
+  }
+HARDWARE\esp8266\esp.c: 17 warnings, 0 errors
 compiling usart3.c...
 compiling Timer.c...
 compiling co2.c...
@@ -100,9 +110,9 @@ HARDWARE\values\co2.c: 2 warnings, 0 errors
 compiling oled.c...
 compiling iwdg.c...
 linking...
-Program Size: Code=13240 RO-data=1168 RW-data=2700 ZI-data=4636  
+Program Size: Code=14704 RO-data=3412 RW-data=2708 ZI-data=4868  
 FromELF: creating hex file...
-".\Objects\test1.axf" - 0 Error(s), 17 Warning(s).
+".\Objects\test1.axf" - 0 Error(s), 22 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\Desktop\协调器\RTE

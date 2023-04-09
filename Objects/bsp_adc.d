@@ -1,4 +1,4 @@
-.\objects\bsp_adc.o: HARDWARE\sensor\src\bsp_adc.c
+.\objects\bsp_adc.o: ..\test\test\HARDWARE\sensor\src\bsp_adc.c
 .\objects\bsp_adc.o: .\FWLib\inc\bsp_adc.h
 .\objects\bsp_adc.o: .\USER\stm32f10x.h
 .\objects\bsp_adc.o: .\CORE\core_cm3.h

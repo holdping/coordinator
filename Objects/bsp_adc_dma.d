@@ -1,4 +1,4 @@
-.\objects\bsp_adc_dma.o: HARDWARE\sensor\src\bsp_adc_dma.c
+.\objects\bsp_adc_dma.o: ..\test\test\HARDWARE\sensor\src\bsp_adc_dma.c
 .\objects\bsp_adc_dma.o: .\FWLib\inc\bsp_adc_dma.h
 .\objects\bsp_adc_dma.o: .\USER\stm32f10x.h
 .\objects\bsp_adc_dma.o: .\CORE\core_cm3.h
